@@ -1,0 +1,1 @@
+Threats: malicious uploads, path traversal, poisoned logs, prompt injection in artifacts, unauthorized access, model hallucination, timestamp manipulation and dependency compromise. Controls: sandbox parsers, allowlisted paths, content validation, least privilege, immutable originals, grounded retrieval and audit logs.

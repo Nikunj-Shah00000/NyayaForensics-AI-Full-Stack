@@ -1,0 +1,1 @@
+Adapters are intended for validated integrations with Sleuth Kit/pytsk3, Plaso, Volatility 3, ExifTool, YARA and TShark. The MVP uses synthetic data and keeps the adapters modular.

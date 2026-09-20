@@ -1,0 +1,1 @@
+Collect → Hash/Preserve → Extract → Normalize → Correlate → Graph → Timeline → Detect → Explain → Report. Frontend: React. API: FastAPI. Data: PostgreSQL + Neo4j + object storage. AI: scikit-learn/Transformers/OpenCV/LLM-ready.

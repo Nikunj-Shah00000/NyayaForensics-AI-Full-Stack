@@ -1,0 +1,1 @@
+Synthetic fictional case data only. It demonstrates an insider data-transfer sequence without real victims or operational evidence.

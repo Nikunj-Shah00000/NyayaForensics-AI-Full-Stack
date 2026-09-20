@@ -1,0 +1,8 @@
+event_id,user_id,device_id,event_type,timestamp,file_id,ip,source
+E001,U102,D17,login,2026-09-15T09:41:12Z,,,system_log
+E002,U102,D17,usb_connect,2026-09-15T09:43:08Z,,USB-02,system_log
+E003,U102,D17,file_open,2026-09-15T09:47:31Z,F117,,filesystem
+E004,U102,D17,file_copy,2026-09-15T09:51:02Z,F117,,filesystem
+E005,U102,D17,archive_create,2026-09-15T09:54:11Z,F201,,filesystem
+E006,U102,D17,network_connection,2026-09-15T10:01:47Z,,103.0.0.17,network_log
+E007,U102,D17,upload,2026-09-15T10:04:22Z,F201,103.0.0.17,network_log

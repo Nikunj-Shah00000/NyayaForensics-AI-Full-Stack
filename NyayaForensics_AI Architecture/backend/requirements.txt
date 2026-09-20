@@ -1,0 +1,15 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.5
+pydantic-settings==2.7.1
+python-multipart==0.0.20
+sqlalchemy==2.0.37
+psycopg2-binary==2.9.10
+neo4j==5.27.0
+redis==5.2.1
+celery==5.4.0
+python-magic==0.4.27
+Pillow==11.1.0
+numpy==2.2.2
+scikit-learn==1.6.1
+pandas==2.2.3

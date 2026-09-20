@@ -1,0 +1,1 @@
+rule DemoArchive { strings: $zip={50 4B 03 04} condition:$zip at 0 }

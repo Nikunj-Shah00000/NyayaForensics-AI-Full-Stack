@@ -1,0 +1,1 @@
+Every material AI claim should map to an Evidence ID, source artifact, extraction method/tool version, observed/inferred label, confidence and review state. The LLM is never the authority for authenticity.

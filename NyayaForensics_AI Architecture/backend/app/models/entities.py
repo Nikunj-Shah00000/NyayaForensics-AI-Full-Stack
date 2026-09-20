@@ -1,0 +1,14 @@
+from datetime import datetime,timezone
+from sqlalchemy import String,Text,DateTime,Integer,Float,ForeignKey
+from sqlalchemy.orm import DeclarativeBase,Mapped,mapped_column
+class Base(DeclarativeBase): pass
+class Case(Base):
+ __tablename__='cases'; id:Mapped[int]=mapped_column(primary_key=True); case_number:Mapped[str]=mapped_column(String(80),unique=True,index=True); title:Mapped[str]=mapped_column(String(200)); description:Mapped[str]=mapped_column(Text,default=''); status:Mapped[str]=mapped_column(String(40),default='Under Investigation'); created_at:Mapped[datetime]=mapped_column(DateTime,default=lambda:datetime.now(timezone.utc))
+class Evidence(Base):
+ __tablename__='evidence'; id:Mapped[int]=mapped_column(primary_key=True); case_id:Mapped[int]=mapped_column(ForeignKey('cases.id'),index=True); evidence_id:Mapped[str]=mapped_column(String(100),unique=True,index=True); filename:Mapped[str]=mapped_column(String(255)); mime_type:Mapped[str]=mapped_column(String(120),default='application/octet-stream'); size:Mapped[int]=mapped_column(Integer,default=0); sha256:Mapped[str]=mapped_column(String(64),index=True); source:Mapped[str]=mapped_column(String(120),default='uploaded'); storage_path:Mapped[str]=mapped_column(String(500)); integrity_status:Mapped[str]=mapped_column(String(40),default='VERIFIED'); acquired_at:Mapped[datetime]=mapped_column(DateTime,default=lambda:datetime.now(timezone.utc))
+class Artifact(Base):
+ __tablename__='artifacts'; id:Mapped[int]=mapped_column(primary_key=True); case_id:Mapped[int]=mapped_column(ForeignKey('cases.id'),index=True); evidence_id:Mapped[str]=mapped_column(String(100)); artifact_type:Mapped[str]=mapped_column(String(80)); value:Mapped[str]=mapped_column(Text); source:Mapped[str]=mapped_column(String(120)); confidence:Mapped[float]=mapped_column(Float,default=1.0)
+class Event(Base):
+ __tablename__='events'; id:Mapped[int]=mapped_column(primary_key=True); case_id:Mapped[int]=mapped_column(ForeignKey('cases.id'),index=True); event_id:Mapped[str]=mapped_column(String(100),unique=True); event_type:Mapped[str]=mapped_column(String(80)); timestamp:Mapped[datetime]=mapped_column(DateTime,index=True); source:Mapped[str]=mapped_column(String(120)); entity_id:Mapped[str]=mapped_column(String(100),default=''); confidence:Mapped[float]=mapped_column(Float,default=1.0); observed_or_inferred:Mapped[str]=mapped_column(String(30),default='observed')
+class Anomaly(Base):
+ __tablename__='anomalies'; id:Mapped[int]=mapped_column(primary_key=True); case_id:Mapped[int]=mapped_column(ForeignKey('cases.id'),index=True); event_id:Mapped[str]=mapped_column(String(100),default=''); type:Mapped[str]=mapped_column(String(100)); severity:Mapped[str]=mapped_column(String(30)); description:Mapped[str]=mapped_column(Text); confidence:Mapped[float]=mapped_column(Float,default=.5)

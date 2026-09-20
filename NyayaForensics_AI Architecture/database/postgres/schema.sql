@@ -1,0 +1,1 @@
+-- Development schema is created by SQLAlchemy. This file documents the core tables: cases, evidence, artifacts, events, anomalies.
